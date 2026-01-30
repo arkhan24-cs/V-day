@@ -63,20 +63,50 @@ function displayCat() {
 
 // Function to display the cat-heart.gif
 function displayCatHeart() {
-  // Clear existing content in the image container
   document.getElementById("image-container").innerHTML = "";
-  // Get the container where the image will be displayed
   var imageContainer = document.getElementById("image-container");
-  // Create a new Image element for the cat-heart
+
   var catHeartImage = new Image();
-  // Set the source (file path) for the cat-heart image
-  catHeartImage.src = "cat-heart.gif"; // Assuming the cat-heart image is named "cat-heart.gif"
-  // Set alternative text for the image (for accessibility)
+  catHeartImage.src = "cat-heart.gif";
   catHeartImage.alt = "Cat Heart";
-  // When the cat-heart image is fully loaded, add it to the image container
+
   catHeartImage.onload = function () {
     imageContainer.appendChild(catHeartImage);
-    // Hide the options container
+
+    // Add text under the gif
+    // Text container
+    var textContainer = document.createElement("div");
+    textContainer.style.marginTop = "20px";
+    textContainer.style.textAlign = "center";
+    textContainer.style.maxWidth = "700px";
+
+    // Title text
+    var title = document.createElement("p");
+    title.innerText = "Yay! 💖";
+    title.style.fontFamily = "Comic Sans MS, cursive";
+    title.style.color = "#ff4d6d";
+    title.style.fontSize = "36px";
+    title.style.marginBottom = "15px";
+
+    // Message text
+    var message = document.createElement("p");
+    message.innerText =
+      "Dear Abby,\n\n" +
+      "Thank you for being my first Valentine ever. I just want to say that I appreciate you so much and that you make me very happy.\n\n" +
+      "I know we have had our ups and downs, but you have always been here. Every moment with you is a blessing for me, and I'm grateful for everything.\n\n" +
+      "I know I'm slow and dense sometimes, but I will always try my best to make you happy and always be here for you, no matter what.\n\n" +
+      "I love you, Abby Hall, and forever will. Thank you for being in my life.";
+
+    message.style.fontFamily = "Comic Sans MS, cursive";
+    message.style.color = "#ff4d6d";
+    message.style.fontSize = "22px";
+    message.style.whiteSpace = "pre-line"; // 👈 keeps line breaks
+
+    // Append everything
+    textContainer.appendChild(title);
+    textContainer.appendChild(message);
+    imageContainer.appendChild(textContainer);
+
     document.getElementById("options").style.display = "none";
   };
 }
